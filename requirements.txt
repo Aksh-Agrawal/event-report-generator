@@ -3,3 +3,4 @@ uvicorn
 python-multipart
 langchain
 google-generativeai
+dotenv
