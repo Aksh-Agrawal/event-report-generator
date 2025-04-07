@@ -1,0 +1,30 @@
+template = r"""
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=1in}
+\begin{document}
+
+\begin{center}
+    \includegraphics[width=0.3\textwidth]{""" + logo_filename + r"""}
+    \vspace{0.5cm}
+
+    \LARGE \textbf{""" + event_name + r"""}
+
+    \vspace{0.3cm}
+    \normalsize Date: """ + event_date + r""" \\
+    Time: """ + event_time + r""" \\
+    Location: """ + event_location + r"""
+\end{center}
+
+\vspace{1cm}
+
+""" + event_description + r"""
+
+\vspace{1cm}
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{""" + image_filename + r"""}
+\end{center}
+
+\end{document}
+"""
