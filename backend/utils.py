@@ -24,19 +24,24 @@ def render_latex(event_name, event_date, event_time, event_location, event_descr
 \\documentclass{{article}}
 \\usepackage{{graphicx}}
 \\usepackage{{geometry}}
+\\usepackage{{titling}}
+\\usepackage{{parskip}}
+\\usepackage{{setspace}}
+
 \\geometry{{margin=1in}}
+\\setlength{{\\droptitle}}{{-4em}}
+\\setstretch{{1.2}}
+
 \\begin{{document}}
 
+% Header with logo and event name
 \\begin{{center}}
-    \\includegraphics[width=0.3\\textwidth]{{{logo_path}}}
-    \\vspace{{0.5cm}}
-
-   \\LARGE \\textbf{{{escape_latex(event_name)}}}
-
-    \\vspace{{0.3cm}}
-    \\normalsize Date: {event_date} \\\\
-    Time: {event_time} \\\\
-    Location: {event_location}
+    \\includegraphics[width=0.3\\textwidth]{{{logo_path}}}\\\\[0.5cm]
+    {{\\LARGE \\textbf{{{escape_latex(event_name)}}}}}\\\\[0.3cm]
+    \\normalsize
+    \\textbf{{Date:}} {escape_latex(event_date)} \\\\
+    \\textbf{{Time:}} {escape_latex(event_time)} \\\\
+    \\textbf{{Location:}} {escape_latex(event_location)}
 \\end{{center}}
 
 \\vspace{{1cm}}
@@ -44,6 +49,8 @@ def render_latex(event_name, event_date, event_time, event_location, event_descr
 {escape_latex(event_description)}
 
 \\vspace{{1cm}}
+
+% Main Event Image
 \\begin{{center}}
     \\includegraphics[width=0.5\\textwidth]{{{image_path}}}
 \\end{{center}}
